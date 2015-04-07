@@ -1,0 +1,24 @@
+/* some style */
+body{
+  font-family: Tahoma;
+}
+
+h2 {
+  font-size: 80px;
+  margin: auto;
+  width: 600px;
+  text-align: center;
+}
+
+div{
+  width: 600px;
+  margin: auto;
+}
+
+div button{
+  border: 0px;
+  font-size: 100px;
+  background: none;
+  width: 200px;
+  height: 200px;
+}
