@@ -22,3 +22,29 @@ div button{
   width: 200px;
   height: 200px;
 }
+
+div .alert{
+  float: left;
+  background: gray;
+  color: yellow;
+  font-size: 40px;
+  text-align: center;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  opacity: 0.9;
+}
+
+.alert .finalMessage {
+  margin-top: 100px;
+}
+
+.restart {
+  display: block;
+  color: white;
+  font-size: 40px;
+  margin: 0 auto;
+  width: 400px;
+  border: 10px solid green;
+  margin-top: 80px;
+}
