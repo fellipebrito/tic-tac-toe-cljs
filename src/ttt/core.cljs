@@ -88,8 +88,8 @@
                       (dom/button #js {:className "restart animated infinite pulse" :onClick #(om/set-state! owner :board (restart data))} "Play Again!"))))
         (if (draw? (:board data))
           (do
-              (dom/div #js {:className "col-lg-8 col-lg-offset-2 alert"}
-                      (dom/div #js {:className "finalMessage animated tada"} "It is a Draw!")
+              (dom/div #js {:className "alert"}
+                      (dom/div #js {:className "finalMessage animated tada"} (str (rand-nth ["Win or Win. There is no Draw" "I will kick your but in the next" "Boooooring"])))
                       (dom/button #js {:className "restart animated infinite pulse" :onClick #(om/set-state! owner :board (restart data))} "Play Again!"))))
         (dom/div #js {:className "col-lg-2 col-md-2 col-sm-4 col-xs-4 col-md-offset-3 col-lg-offset-3"}
                 (dom/button #js {:className (subs (:board data) 0 1)
