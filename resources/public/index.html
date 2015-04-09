@@ -1,11 +1,133 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="js/vendor/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified bootstrap -->
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/vendor/bootstrap-theme.min.css">
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <!-- Fonts Awesome -->
+    <link rel="stylesheet" href="css/vendor/font-awesome/css/font-awesome.min.css">
+
+    <!-- Fonts Google -->
+    <link href='css/vendor/fonts/style.css' rel='stylesheet' type='text/css'>
+
+    <!-- Animate -->
+    <link href="css/vendor/animate.css" rel="stylesheet" type="text/css">
+
+    <!-- Modal -->
+    <!-- <meta name="viewport" content="width=device&#45;width, initial&#45;scale=1"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/vendor/modal/normalize.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/vendor/modal/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/vendor/modal/content.css" />
+    <script src="js/vendor/modal/modernizr.custom.js"></script>
+
+    <!-- Game CSS -->
     <link href="css/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h2>Tic Tac Toe</h2>
-    <div id="app"></div>
-    <script src="js/compiled/ttt.js" type="text/javascript"></script>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-lg-offset-11 col-md-offset-11 col-sm-offset-11 col-xs-offset-11">
+          <section>
+            <div class="morph-button morph-button-overlay morph-button-fixed">
+              <button type="button"><i class="fa fa-info-circle fa-4x"></i></button>
+
+              <div class="morph-content">
+                <div>
+                  <div class="content-style-overlay">
+                    <span class="icon icon-close"><i class="fa fa-times"></i> </span>
+                    <h2>About TicTacToe</h2>
+                    <p>TicTacToe was made by <a target="_blank" href="https://github.com/fellipebrito">Fellipe Brito</a> with the goal of learn ClojureScript.</p>
+                    <p>If you want to see the source code, you can go to <a href="https://github.com/fellipebrito/tic-tac-toe-cljs" target="_blank">https://github.com/fellipebrito/tic-tac-toe-cljs</a>.</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- morph-button -->
+          </section>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h1>Tic Tac Toe</h1>
+        </div>
+      </div>
+      <div id="game" class="row"></div>
+      <script src="js/compiled/ttt.js" type="text/javascript"></script>
+    </div><!-- /container -->
+    <script src="js/vendor/modal/classie.js"></script>
+    <script src="js/vendor/modal/uiMorphingButton_fixed.js"></script>
+    <script>
+      (function() {
+        var docElem = window.document.documentElement, didScroll, scrollPosition;
+
+        // trick to prevent scrolling when opening/closing button
+        function noScrollFn() {
+          window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+        }
+
+        function noScroll() {
+          window.removeEventListener( 'scroll', scrollHandler );
+          window.addEventListener( 'scroll', noScrollFn );
+        }
+
+        function scrollFn() {
+          window.addEventListener( 'scroll', scrollHandler );
+        }
+
+        function canScroll() {
+          window.removeEventListener( 'scroll', noScrollFn );
+          scrollFn();
+        }
+
+        function scrollHandler() {
+          if( !didScroll ) {
+            didScroll = true;
+            setTimeout( function() { scrollPage(); }, 60 );
+          }
+        };
+
+        function scrollPage() {
+          scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
+          didScroll = false;
+        };
+
+        scrollFn();
+
+        var el = document.querySelector( '.morph-button' );
+
+        new UIMorphingButton( el, {
+          closeEl : '.icon-close',
+          onBeforeOpen : function() {
+            // don't allow to scroll
+            noScroll();
+          },
+          onAfterOpen : function() {
+            // can scroll again
+            canScroll();
+            // add class "noscroll" to body
+            classie.addClass( document.body, 'noscroll' );
+            // add scroll class to main el
+            classie.addClass( el, 'scroll' );
+          },
+          onBeforeClose : function() {
+            // remove class "noscroll" to body
+            classie.removeClass( document.body, 'noscroll' );
+            // remove scroll class from main el
+            classie.removeClass( el, 'scroll' );
+            // don't allow to scroll
+            noScroll();
+          },
+          onAfterClose : function() {
+            // can scroll again
+            canScroll();
+          }
+        } );
+      })();
+    </script>
+
+    </div>
   </body>
 </html>
