@@ -1,9 +1,6 @@
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
-#game{
-}
-
 #game button{
   font-family: 'Rock Salt', cursive;
   background: none;
@@ -35,7 +32,7 @@ button.x:after {
   }
 
   h1{
-    margin-top:80px;
+    margin-top:50px;
     font-size: 18em;
   }
 
@@ -87,7 +84,7 @@ button.x:after {
   }
 
   h1{
-    margin-top: 40px;
+    margin-top: 10px;
     font-size: 10em;
   }
 
@@ -140,7 +137,7 @@ button.x:after {
   }
 
   h1{
-    margin-top: 40px;
+    margin-top: 10px;
     font-size: 12em;
   }
 
