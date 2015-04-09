@@ -1,50 +1,186 @@
-/* some style */
-body{
-  font-family: Tahoma;
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+#game{
 }
 
-h2 {
-  font-size: 80px;
-  margin: auto;
-  width: 600px;
-  text-align: center;
-}
-
-div{
-  width: 600px;
-  margin: auto;
-}
-
-div button{
-  border: 0px;
-  font-size: 100px;
+#game button{
+  font-family: 'Rock Salt', cursive;
   background: none;
-  width: 200px;
-  height: 200px;
+  border: 5px solid transparent;
+  width: 100%;
+  text-transform: uppercase;
+  line-height: initial;
 }
 
-div .alert{
-  float: left;
-  background: gray;
-  color: yellow;
-  font-size: 40px;
+h1{
   text-align: center;
-  width: 600px;
-  height: 600px;
-  position: absolute;
-  opacity: 0.9;
+  font-family: 'Amatic SC', cursive;
 }
 
-.alert .finalMessage {
-  margin-top: 100px;
+button.o:after {
+  color: red;
+  content: "o";
 }
 
-.restart {
-  display: block;
-  color: white;
-  font-size: 40px;
-  margin: 0 auto;
-  width: 400px;
-  border: 10px solid green;
-  margin-top: 80px;
+button.x:after {
+  color: blue;
+  content: "x";
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 900px) and (max-width: 991px) {
+  .container{
+    width: 900px;
+  }
+
+  h1{
+    margin-top:80px;
+    font-size: 18em;
+  }
+
+  #game{
+    margin-top: 150px;
+    background: url("../images/board.png") no-repeat center -10px white;
+    background-size: 100%;
+  }
+
+  #game button{
+    height: 263px;
+    font-size: 7em;
+  }
+
+  /* Final Message */
+  .alert{
+    background: gray;
+    z-index: 9999;
+    height: 880px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    width: 900px;
+  }
+
+  .finalMessage{
+    font-size: 10em;
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    text-align: center;
+    margin-top:60px;
+    margin-bottom: 140px;
+  }
+
+  #game button.restart{
+    font-size: 3em;
+    color: white;
+    box-shadow: -3px 13px 71px;
+  }
+
+  #game button.restart:focus{
+    box-shadow: -3px 13px 71px yellow;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container{
+    width: 900px;
+  }
+
+  h1{
+    margin-top: 40px;
+    font-size: 10em;
+  }
+
+  #game{
+    margin-top: 40px;
+    background: url("../images/board.png") no-repeat center -10px white;
+    background-size: 500px 400px;
+  }
+
+  #game button{
+    height: 112px;
+    font-size: 3em;
+  }
+
+  /* Final Message */
+  .alert{
+    background: gray;
+    z-index: 9999;
+    height: 400px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    width: 700px;
+    margin-left: 90px;
+  }
+
+  .finalMessage{
+    font-size: 7em;
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  #game button.restart{
+    font-size: 3em;
+    color: white;
+    box-shadow: -3px 13px 71px;
+  }
+
+  #game button.restart:focus{
+    box-shadow: -3px 13px 71px yellow;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container{
+    width: 900px;
+  }
+
+  h1{
+    margin-top: 40px;
+    font-size: 12em;
+  }
+
+  #game{
+    margin-top: 60px;
+    background: url("../images/board.png") no-repeat center -10px white;
+    background-size: 500px 400px;
+  }
+
+  #game button{
+    height: 112px;
+    font-size: 3em;
+  }
+
+  /* Final Message */
+  .alert{
+    background: gray;
+    z-index: 9999;
+    height: 395px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    width: 900px;
+  }
+
+  .finalMessage{
+    font-size: 4em;
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    text-align: center;
+    margin-top:20px;
+    margin-bottom: 80px;
+  }
+
+  #game button.restart{
+    font-size: 3em;
+    color: white;
+    box-shadow: -3px 13px 71px;
+  }
+
+  #game button.restart:focus{
+    box-shadow: -3px 13px 71px yellow;
+  }
 }
